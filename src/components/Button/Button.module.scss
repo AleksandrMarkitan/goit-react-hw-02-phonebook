@@ -1,0 +1,21 @@
+.button {
+  display: block;
+  box-sizing: border-box;
+  width: 288px;
+  height: 40px;
+  margin: 20px auto 0;
+
+  color: #ffffff;
+  background: #4cc6f5;
+  border: 1px solid #c5c5c5;
+  border-radius: 6px;
+
+  order: 1;
+  align-self: stretch;
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    background: #29abdd;
+  }
+}
