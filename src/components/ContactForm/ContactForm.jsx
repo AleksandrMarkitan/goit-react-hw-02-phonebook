@@ -1,12 +1,12 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
-import { Button } from '../Button/Button';
+import { AddButton } from '../Button/Button';
 import s from './ContactForm.module.scss';
 
 export class ContactForm extends Component {
   state = {
-    name: this.props.name,
-    number: this.props.number,
+    name: '',
+    number: '',
   };
 
   handleContactInput = ({ target: { name, value } }) => {
@@ -15,10 +15,20 @@ export class ContactForm extends Component {
     });
   };
 
+  handleOnSubmit = e => {
+    e.preventDefault();
+    this.props.addContact(this.state);
+    this.onFormReset();
+  };
+
+  onFormReset = () => {
+    this.setState({ name: '', number: '' });
+  };
+
   render() {
     const { name, number } = this.state;
     return (
-      <form className={s.form}>
+      <form className={s.form} onSubmit={this.handleOnSubmit}>
         <label className={s.label}>
           Name
           <input
@@ -45,15 +55,12 @@ export class ContactForm extends Component {
             onChange={this.handleContactInput}
           />
         </label>
-        <Button />
+        <AddButton />
       </form>
     );
   }
 }
 
-// User.propTypes = {
-//   user: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     email: PropTypes.string.isRequired, // name of the users  object  being
-//   }).isRequired,
-// };
+ContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};

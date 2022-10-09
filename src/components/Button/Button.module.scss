@@ -1,4 +1,4 @@
-.button {
+.buttonAdd {
   display: block;
   box-sizing: border-box;
   width: 288px;
@@ -17,5 +17,31 @@
   &:hover {
     cursor: pointer;
     background: #29abdd;
+  }
+}
+.buttonDel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  background: #ffffff8c;
+  border: none;
+  order: 1;
+  align-self: stretch;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.buttonDelSvg {
+  color: #000000;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
   }
 }

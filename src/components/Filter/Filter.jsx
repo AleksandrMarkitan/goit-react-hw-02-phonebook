@@ -1,24 +1,26 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import s from '../ContactForm/ContactForm.module.scss';
 
-export const Filter = () => {
+export const Filter = ({ filtration }) => {
+  const handleFilterInput = ({ target: { value } }) => {
+    filtration(value.toLowerCase());
+  };
+
   return (
     <label className={s.label}>
       Find contacts by name
       <input
         className={s.input}
         type="text"
-        name="Find contacts by name"
+        name="filter"
         required
+        onChange={e => handleFilterInput(e)}
       />
     </label>
   );
 };
 
-// User.propTypes = {
-//   user: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     email: PropTypes.string.isRequired, // name of the users  object  being
-//   }).isRequired,
-// };
+Filter.propTypes = {
+  filtration: PropTypes.func.isRequired,
+};
