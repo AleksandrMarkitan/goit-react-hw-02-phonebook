@@ -32,7 +32,6 @@ export class App extends Component {
   };
 
   filtration = filterKey => {
-    console.log(filterKey);
     this.setState({
       filter: filterKey,
     });
